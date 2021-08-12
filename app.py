@@ -58,6 +58,9 @@ def index():
         
 
         final="""
+!pip install numpy
+!pip install pandas
+!pip install scikit-learn
 import os
 import numpy as np
 import pandas as pd
@@ -101,10 +104,6 @@ from sklearn.metrics import r2_score
 y_pred=regressor.predict(x_test)
 accuracy=r2_score(y_test, y_pred)
 """
-
-        #Writing to file
-        # code=open("static/code.py",'w')
-        # code.write(final)
 
     return render_template('index.html', prediction_text='Trained Model with accuracy {}:\n {}'.format(accuracy,final))
 
