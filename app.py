@@ -106,7 +106,7 @@ accuracy=r2_score(y_test, y_pred)
         # code=open("static/code.py",'w')
         # code.write(final)
 
-    return render_template('index.html', prediction_text='Trained Model:\n {}'.format(final))
+    return render_template('index.html', prediction_text='Trained Model with accuracy {}:\n {}'.format(accuracy,final))
 
 if __name__ == '__main__':
     app.run(debug=True)
