@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        
     <title>Automatic ML</title>
 </head>
 <body>
+    <h1>Automatic ML Renderer</h1>
     <div class="">
         <form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="csvfile">
             <input type="text" name="target" placeholder="Enter the target variable" required="required" />
+            <br>
             <input type="submit" value="Submit">
         </form>
 

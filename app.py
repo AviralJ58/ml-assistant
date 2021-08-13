@@ -15,6 +15,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     accuracy=0
+    global final
     final=''
     if request.method == 'POST':
         file = request.files['csvfile']
@@ -108,9 +109,9 @@ accuracy=r2_score(y_test, y_pred)
         code.write(final)
         os.remove(filepath)
 
-    return render_template('index.html', prediction_text='Trained Model with accuracy {}'.format(accuracy))
+    return render_template('index.html', prediction_text='Trained Model with Accuracy {}\n{}'.format(accuracy,final))
 
-@app.route('/return-files/',methods=['GET'])
+@app.route('/return-files/')
 def return_files_tut():
 	try:
 		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
