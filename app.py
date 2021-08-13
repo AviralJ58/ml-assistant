@@ -106,13 +106,14 @@ accuracy=r2_score(y_test, y_pred)
 
         code=open("static/output.py","w")
         code.write(final)
+        os.remove(filepath)
 
     return render_template('index.html', prediction_text='Trained Model with accuracy {}'.format(accuracy))
 
 @app.route('/return-files/')
 def return_files_tut():
 	try:
-		return send_file('static/output.py', attachment_filename='output.py')
+		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
 	except Exception as e:
 		return str(e)
 
