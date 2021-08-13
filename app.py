@@ -110,7 +110,7 @@ accuracy=r2_score(y_test, y_pred)
 
     return render_template('index.html', prediction_text='Trained Model with accuracy {}'.format(accuracy))
 
-@app.route('/return-files/')
+@app.route('/return-files/',methods=['GET'])
 def return_files_tut():
 	try:
 		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
