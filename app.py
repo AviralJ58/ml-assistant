@@ -56,6 +56,7 @@ def index():
         from sklearn.metrics import r2_score
         y_pred=regressor.predict(x_test)
         accuracy=r2_score(y_test, y_pred)
+        accuracy=round(accuracy,4)
         
 
         final="""
@@ -109,7 +110,7 @@ accuracy=r2_score(y_test, y_pred)
         code.write(final)
         os.remove(filepath)
 
-    return render_template('index.html', prediction_text='Trained Model with Accuracy {}\n{}'.format(accuracy,final))
+    return render_template('index.html', prediction_text='Trained Model with {}% Accuracy '.format(accuracy*100))
 
 @app.route('/return-files/')
 def return_files_tut():
