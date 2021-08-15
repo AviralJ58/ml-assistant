@@ -18,6 +18,10 @@
         <form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="csvfile">
             <input type="text" name="target" placeholder="Enter the target variable" required="required" />
+            <select name="type" id="type">
+                <option value="regression">Regression</option>
+                <option value="classification">Classification</option>
+            </select>
             <br>
             <input type="submit" value="Submit">
         </form>
