@@ -167,31 +167,32 @@ accuracy=r2_score(y_test, y_pred)"""
             
             if Keymax=="LogisticRegression()":
                 modelstr="""#Training the model
-from sklearn.linear_model import LinearRegression
-regressor = LogisticRegression()
-regressor.fit(x_train,y_train)    
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression()
+classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)"""
                 final+=modelstr
 
             elif Keymax=='DecisionTreeClassifier()':
                 modelstr="""#Training the model
 from sklearn.tree import DecisionTreeClassifier
-regressor = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
-regressor.fit(x_train,y_train)    
+classifier = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
+classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)"""
                 final+=modelstr
 
             elif Keymax=="RandomForestClassifier()":
                 modelstr="""#Training the model
 from sklearn.ensemble import RandomForestClassifier
-regressor = RandomForestClassifier()
-regressor.fit(x_train,y_train)    
-from sklearn.metrics import accuracy_scorey_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+classifier = RandomForestClassifier()
+classifier.fit(x_train,y_train)    
+from sklearn.metrics import accuracy_score
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)"""
                 final+=modelstr
 
         code=open("static/output.py","w")
