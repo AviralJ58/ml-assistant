@@ -35,7 +35,7 @@ def index():
 
         df=pd.read_csv(filepath)
 
-        # Identifying the categotical columns and label encoding them
+        # Identifying the categorical columns and label encoding them
         le = LabelEncoder()
         for col in df:
             if(df[col].dtype=='object'):
@@ -69,7 +69,7 @@ filepath=   #Please enter the filepath of csv file.
 tar=    #Please enter target variable name
 df=pd.read_csv(filepath)
 
-# Identifying the categotical columns and label encoding them
+# Identifying the categorical columns and label encoding them
 le = LabelEncoder()
 for col in df:
     if(df[col].dtype=='object'):
