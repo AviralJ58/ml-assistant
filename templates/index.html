@@ -10,10 +10,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link rel="stylesheet" href="..\static\css\style.css">
-        
-    <title>Automatic ML</title>
-    
+    <link rel="icon" href="..\static\icon.ico">
+    <title>Automatic ML Renderer</title> 
 </head>
+
 <body>
     <br>
     <img src="..\static\icon.png" align=left class='icon'>
@@ -21,39 +21,80 @@
     <br>
     <hr class='divider'>
     <br>
-    <p class='desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione nisi, officiis porro reiciendis eius ipsa quia ad nobis fugiat nihil explicabo dolor aspernatur libero dolore dolorem harum quo quibusdam? Provident fugiat sint mollitia aspernatur deserunt dolor ad neque, laudantium maxime distinctio delectus sed praesentium obcaecati omnis quibusdam magni rem.
-    </p>
+    <div class="desc">
+        <p>
+            <h2>The TIME has come for the you to bring Machine Learning to LIFE.</h2>
+        <h3>You can now just add your dataset and get pre-trained model with the code.</h3>
+        Even if you don't know to write a single line of code, you can get machine learning code rendered following just a few steps.
+        <br>
+        <ul>
+            <li>
+                <h4>Step 1: <b>Upload your dataset in CSV format.</b></h4>   
+            </li>
+            <li>
+                <h4>Step 2: 
+                    <b>Choose the variable you wish to predict.</b></h4>
+            </li>
+            <li>
+                <h4>Step 3: 
+                    <b>Choose the type of algorithm.</b></h4>
+                    <ul>
+                        <li>
+                            <h4> Regression: If you want to predict the value of a particular entity.
+                            </h4>
+                        </li>
+                        <li>
+                            <h4> Classification: If you want to predict the class of a particular entity.
+                            </h4>
+                        </li>
+                    </ul>
+            </li>
+            
+            <li>
+                <h4>Step 4: <b>You can download your machine learning code by clicking the download button.</b></h4>
+            </li>
+        </ul>
+        </p>
+    </div>
 
     <form action="" method="post" enctype="multipart/form-data">
-    <div>
-        <div class="inputs">
-            <ol class=list>
-                <li><input type="file" name="csvfile"></li>
-                <li><input type="text" name="target" placeholder="Enter the target variable" required="required" /></li>
-            </ol>
+        <div class='main'>
+            <div class="inputs">
+                    <div class="number">
+                        1
+                    </div>
+                    <input type="file" name="csvfile">
+            </div>
+            <div class="inputs">
+                <div class="number">
+                    2
+                </div>
+                <input type="text" name="target" placeholder="Enter the target variable" required="required" />
+            </div>
         </div>
-        <br>
-        <div class="inputs">
-            <ol start=3 class='list'>
-                <li><select name="type" id="type">
-                    <option value="regression">Regression</option>
-                    <option value="classification">Classification</option>
-                    </select></li>
-                <li>
+            <br>
+        <div class="main">
+            <div class="inputs">
+                <div class="number">
+                    3
+                </div>
+                <select name="type" id="type">
+                        <option value="regression">Regression</option>
+                        <option value="classification">Classification</option>
+                </select>
+            </div>
+
+            <div class="inputs">
                 <input type="submit" value="Submit" class="submit">
-                </li>
-            </ol>
+            </div>
         </div>
-    </div>
     </form>
-<br>
-<br>
-<br>
+
     <div class="container">
         {{ prediction_text }}
         <br>
         <a href="/return-files/" download><button class='down'>Download</button></a>
     </div>
-    </div>
+
 </body>
 </html>
