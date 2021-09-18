@@ -8,36 +8,52 @@
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="static\css\style.css">
         
     <title>Automatic ML</title>
+    
 </head>
 <body>
-    <h1>Automatic ML Renderer</h1>
-    <div class="">
-        <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="csvfile">
-            <input type="text" name="target" placeholder="Enter the target variable" required="required" />
-            <select name="type" id="type">
-                <option value="regression">Regression</option>
-                <option value="classification">Classification</option>
-            </select>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
+    <br>
+    <img src="icon.png" align=left class='icon'>
+    <h1 class='heading'>ML Renderer</h1>
+    <br>
+    <hr class='divider'>
+    <br>
+    <p class='desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione nisi, officiis porro reiciendis eius ipsa quia ad nobis fugiat nihil explicabo dolor aspernatur libero dolore dolorem harum quo quibusdam? Provident fugiat sint mollitia aspernatur deserunt dolor ad neque, laudantium maxime distinctio delectus sed praesentium obcaecati omnis quibusdam magni rem.
+    </p>
 
+    <form action="" method="post" enctype="multipart/form-data">
+    <div>
+        <div class="inputs">
+            <ol class=list>
+                <li><input type="file" name="csvfile"></li>
+                <li><input type="text" name="target" placeholder="Enter the target variable" required="required" /></li>
+            </ol>
+        </div>
         <br>
+        <div class="inputs">
+            <ol start=3 class='list'>
+                <li><select name="type" id="type">
+                    <option value="regression">Regression</option>
+                    <option value="classification">Classification</option>
+                    </select></li>
+                <li>
+                <input type="submit" value="Submit" class="submit">
+                </li>
+            </ol>
+        </div>
+    </div>
+    </form>
+<br>
+<br>
+<br>
+    <div class="container">
         {{ prediction_text }}
         <br>
-        <br>
-        
-
-        <div class="container" align="left">
-            <a href="/return-files/" download><button class='btn btn-default'>Download</button></a>
-        </div>
-
-        
-
+        <a href="/return-files/" download><button class='down'>Download</button></a>
+    </div>
     </div>
 </body>
 </html>
