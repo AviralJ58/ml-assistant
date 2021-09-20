@@ -55,20 +55,9 @@ select {
 h1,h2,h3,h4,h5,h6{
 	color: #404D61;
 }
-.icon{
-	margin-left: 5%;
-	height:93px; 
-	width:93px;
-}
 
-.heading{
-	margin-left:20%;
-	color: #4D72F8;
-}
-.heading:before{
-	content:'Automatic ';
-	color: #404D61;
-}
+
+
 
 .divider{
 	margin-left: -10%;
@@ -122,3 +111,70 @@ h1,h2,h3,h4,h5,h6{
 	background-color: #4E73F815;
 	text-align:center;
 }
+
+.icon{
+	margin-top: 0;
+	margin-left: 5%;	
+	width:100px;
+	float: left;
+	padding: 0px 6px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.header{
+text-align: left;
+vertical-align: middle;
+margin:100;
+padding: 0;
+}
+
+.heading{
+	margin-left:20%;
+	padding-top:17.537px;
+	font-size: 34px;
+	color: #4D72F8;
+	position: relative;
+
+
+}
+.heading:before{
+	content:'Automatic ';
+	color: #404D61;
+}
+@media screen and (max-width:510px)
+{
+	.heading{
+		margin-left:20%;
+		font-size: 34px;
+		padding-top: 0;
+		color: #4D72F8;
+		position: relative;	
+	}
+
+}
+
+
+@media screen and (max-width: 328px)
+{
+	.icon{
+	
+		width:65px;
+
+	}
+
+	.heading{
+		font-size:1.5rem;
+
+	}
+
+}	
+@media screen and (max-width: 238px)
+{
+	.heading{
+
+		font:0.2em;
+
+	}
+
+}	
