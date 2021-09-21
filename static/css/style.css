@@ -138,10 +138,12 @@ padding: 0;
 
 
 }
+
 .heading:before{
 	content:'Automatic ';
 	color: #404D61;
 }
+
 @media screen and (max-width:510px)
 {
 	.heading{
@@ -151,30 +153,21 @@ padding: 0;
 		color: #4D72F8;
 		position: relative;	
 	}
-
 }
-
 
 @media screen and (max-width: 328px)
 {
 	.icon{
-	
 		width:65px;
-
 	}
-
 	.heading{
 		font-size:1.5rem;
-
 	}
+}
 
-}	
 @media screen and (max-width: 238px)
 {
 	.heading{
-
 		font:0.2em;
-
 	}
-
 }	

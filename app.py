@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import request
+from flask import request, redirect, url_for
 from flask import send_file
 import os
 import numpy as np
@@ -17,25 +17,77 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn.metrics import accuracy_score
 
-app = Flask(__name__)
 
+"""""
+  _   _                        ____             _       
+ | | | | ___  _ __ ___   ___  |  _ \ ___  _   _| |_ ___ 
+ | |_| |/ _ \| '_ ` _ \ / _ \ | |_) / _ \| | | | __/ _ \
+ |  _  | (_) | | | | | |  __/ |  _ < (_) | |_| | ||  __/
+ |_| |_|\___/|_| |_| |_|\___| |_| \_\___/ \__,_|\__\___|
+                                                        
+"""""  
+
+app = Flask(__name__)
+filepath=""
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
+    filepath = "NOT FOUND"
+    df = pd.DataFrame()
     accuracy=0
     final=''
     Keymax=''
     if request.method == 'POST':
         file = request.files['csvfile']
-        tar=request.form['target']
-        type=request.form['type']
+       
         if not os.path.isdir('static'):
             os.mkdir('static')
+
+        if os.path.isfile("static/data.csv"):
+            os.remove("static/data.csv") 
+        
         filepath = os.path.join('static', file.filename)
+        newName = "static/data.csv"
+        
         file.save(filepath)
+        fp = os.rename(filepath, newName)
+        
+        
+            
+        return redirect(url_for('model'))
 
-        df=pd.read_csv(filepath)
 
-        # Identifying the categorical columns and label encoding them
+    return render_template('index.html', filepath=filepath, df = df)
+print(filepath)
+fp = "static\data.csv"
+
+"""""
+  __  __           _      _   ____             _       
+ |  \/  | ___   __| | ___| | |  _ \ ___  _   _| |_ ___ 
+ | |\/| |/ _ \ / _` |/ _ \ | | |_) / _ \| | | | __/ _ \
+ | |  | | (_) | (_| |  __/ | |  _ < (_) | |_| | ||  __/
+ |_|  |_|\___/ \__,_|\___|_| |_| \_\___/ \__,_|\__\___|
+"""""                                                  
+
+
+@app.route('/model/', methods=['GET', 'POST'])
+def model():
+    # df = pd.DataFrame()
+    df = pd.read_csv(fp)
+    targets = list(df.columns.values)
+    accuracy=0
+    final=''
+    Keymax=''
+    
+    if request.method == 'POST':
+        print(fp)
+        df=pd.read_csv(fp)
+        targets = list(df.columns.values)
+        print(targets)
+        tar=request.form['target']
+        type=request.form['type']
+        
+         # Identifying the categotical columns and label encoding them
         le = LabelEncoder()
         for col in df:
             if(df[col].dtype=='object'):
@@ -58,6 +110,20 @@ def index():
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
 
+
+    
+  
+#       /\      /\                        |‾|             |‾|     
+#      /  \    /  \                       | |             | |     
+#     / /\ \  / /\ \      /‾‾‾‾‾\    /‾‾‾‾‾ |   /‾‾‾‾‾ \  | |     
+#    / /  \ \/ /  \ \    | |‾‾‾| |  | |‾‾‾| |  | |‾‾‾| |  | |     
+#   / /    \__/    \ \   | |   | |  | |   | |  | |‾‾‾     | |
+#  / /              \ \  | |___| |  | |___| |  | |___|‾|  | |
+# / /                \ \  \_____/    \_____/   \______/   |_|
+
+
+
+
         final="""import os
 import numpy as np
 import pandas as pd
@@ -69,7 +135,7 @@ filepath=   #Please enter the filepath of csv file.
 tar=    #Please enter target variable name
 df=pd.read_csv(filepath)
 
-# Identifying the categorical columns and label encoding them
+# Identifying the categotical columns and label encoding them
 le = LabelEncoder()
 for col in df:
     if(df[col].dtype=='object'):
@@ -167,39 +233,39 @@ accuracy=r2_score(y_test, y_pred)"""
             
             if Keymax=="LogisticRegression()":
                 modelstr="""#Training the model
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression()
-classifier.fit(x_train,y_train)    
+from sklearn.linear_model import LinearRegression
+regressor = LogisticRegression()
+regressor.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=classifier.predict(x_test)
-accuracy=accuracy_score(y_test, y_pred)"""
+y_pred=regressor.predict(x_test)
+accuracy=r2_score(y_test, y_pred)"""
                 final+=modelstr
 
             elif Keymax=='DecisionTreeClassifier()':
                 modelstr="""#Training the model
 from sklearn.tree import DecisionTreeClassifier
-classifier = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
-classifier.fit(x_train,y_train)    
+regressor = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
+regressor.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=classifier.predict(x_test)
-accuracy=accuracy_score(y_test, y_pred)"""
+y_pred=regressor.predict(x_test)
+accuracy=r2_score(y_test, y_pred)"""
                 final+=modelstr
 
             elif Keymax=="RandomForestClassifier()":
                 modelstr="""#Training the model
 from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier()
-classifier.fit(x_train,y_train)    
-from sklearn.metrics import accuracy_score
-y_pred=classifier.predict(x_test)
-accuracy=accuracy_score(y_test, y_pred)"""
+regressor = RandomForestClassifier()
+regressor.fit(x_train,y_train)    
+from sklearn.metrics import accuracy_scorey_pred=regressor.predict(x_test)
+accuracy=r2_score(y_test, y_pred)"""
                 final+=modelstr
 
         code=open("static/output.py","w")
         code.write(final)
-        os.remove(filepath)
-
-    return render_template('index.html', prediction_text='Trained {} model with accuracy {}'.format(Keymax,accuracy))
+        os.remove("static\data.csv")
+        accuracy = round(accuracy*100, 2)
+    return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
+    
 
 @app.route('/return-files/')
 def return_files_tut():
@@ -210,3 +276,4 @@ def return_files_tut():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
