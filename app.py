@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request, redirect, url_for
-from flask import send_file
+from flask import send_file,  jsonify
 import os
 import numpy as np
 import pandas as pd
@@ -16,6 +16,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn.metrics import accuracy_score
+import joblib
 
 
 """""
@@ -130,16 +131,28 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+import joblib
 
-filepath=   #Please enter the filepath of csv file.
+filepath=   #Please enter the name of csv file (should be in the same folder).
 tar=    #Please enter target variable name
 df=pd.read_csv(filepath)
 
 # Identifying the categotical columns and label encoding them
 le = LabelEncoder()
+le1 = LabelEncoder()
+number = 1
 for col in df:
     if(df[col].dtype=='object'):
-        df[col]=le.fit_transform(df[col])
+        df[col]=df[col].str.strip()      
+        if(col==tar):
+            df[col] = le1.fit_transform(df[col])
+            joblib.dump(le1,"y_encoder.pkl")
+        else:
+            df[col]=le.fit_transform(df[col])
+            temp="x_encoder%s"%number
+            temp=temp+".pkl"
+            joblib.dump(le,temp)
+            number = number + 1
 
 # Identifying the columns with null values and filling them with mean
 for col in df:
@@ -157,6 +170,7 @@ x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=
 sc=StandardScaler()
 x_train[:,:]=sc.fit_transform(x_train[:,:])
 x_test[:,:]=sc.fit_transform(x_test[:,:])
+joblib.dump(sc,"scaler.pkl")
 
 """
         if type=="regression":
@@ -166,10 +180,14 @@ x_test[:,:]=sc.fit_transform(x_test[:,:])
             model1.fit(x_train,y_train)
             y_pred1=model1.predict(x_test)
             score['LinearRegression()']=(r2_score(y_test, y_pred1))
+
+
             model2 = DecisionTreeRegressor()
             model2.fit(x_train,y_train)
             y_pred2=model2.predict(x_test)
             score['DecisionTreeRegressor()']=(r2_score(y_test, y_pred2))
+
+
             model3 = SVR()
             model3.fit(x_train,y_train)
             y_pred3=model3.predict(x_test)
@@ -178,7 +196,7 @@ x_test[:,:]=sc.fit_transform(x_test[:,:])
             #Finding the best model
             Keymax = max(score, key=score.get)
             accuracy=score[Keymax]
-
+            
             
             if Keymax=="LinearRegression()":
                 modelstr="""#Training the model
@@ -187,7 +205,9 @@ regressor = LinearRegression()
 regressor.fit(x_train,y_train)    
 from sklearn.metrics import r2_score
 y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+accuracy=r2_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(regressor, 'model.pkl')"""
                 final+=modelstr
 
             elif Keymax=='DecisionTreeRegressor()':
@@ -197,7 +217,9 @@ regressor = DecisionTreeRegressor()
 regressor.fit(x_train,y_train)    
 from sklearn.metrics import r2_score
 y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+accuracy=r2_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(regressor, 'model.pkl')"""
                 final+=modelstr
 
             elif Keymax=="SVR()":
@@ -207,7 +229,9 @@ regressor = SVR()
 regressor.fit(x_train,y_train)    
 from sklearn.metrics import r2_score
 y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+accuracy=r2_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(regressor, 'model.pkl')"""
                 final+=modelstr
 
         elif type=='classification':
@@ -234,46 +258,62 @@ accuracy=r2_score(y_test, y_pred)"""
             if Keymax=="LogisticRegression()":
                 modelstr="""#Training the model
 from sklearn.linear_model import LinearRegression
-regressor = LogisticRegression()
-regressor.fit(x_train,y_train)    
+classifier = LogisticRegression()
+classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(classifier, 'model.pkl')"""
+
                 final+=modelstr
 
             elif Keymax=='DecisionTreeClassifier()':
                 modelstr="""#Training the model
 from sklearn.tree import DecisionTreeClassifier
-regressor = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
-regressor.fit(x_train,y_train)    
+classifier = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
+classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
-y_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
-                final+=modelstr
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(classifier, 'model.pkl')"""
+                final+=modelstr 
 
             elif Keymax=="RandomForestClassifier()":
                 modelstr="""#Training the model
 from sklearn.ensemble import RandomForestClassifier
-regressor = RandomForestClassifier()
-regressor.fit(x_train,y_train)    
-from sklearn.metrics import accuracy_scorey_pred=regressor.predict(x_test)
-accuracy=r2_score(y_test, y_pred)"""
+classifier = RandomForestClassifier()
+classifier.fit(x_train,y_train)    
+from sklearn.metrics import accuracy_score
+y_pred=classifier.predict(x_test)
+accuracy=accuracy_score(y_test, y_pred)
+print("Accuracy:",accuracy*100,"%")
+joblib.dump(classifier, 'model.pkl')"""
                 final+=modelstr
+
 
         code=open("static/output.py","w")
         code.write(final)
         os.remove("static\data.csv")
         accuracy = round(accuracy*100, 2)
+         
     return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
     
 
-@app.route('/return-files/')
-def return_files_tut():
+@app.route('/return-code/')
+def return_code():
 	try:
 		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
 	except Exception as e:
 		return str(e)
 
+@app.route('/return-api/')
+def return_api():
+	try:
+		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
+	except Exception as e:
+		return str(e)
+
 if __name__ == '__main__':
     app.run(debug=True)
-

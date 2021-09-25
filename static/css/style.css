@@ -78,15 +78,23 @@ h1,h2,h3,h4,h5,h6{
 	display: flex;
 }
 
+.submit:hover{
+	background-color: #4e73f8f3;
+}
+
 .down{
 	background-color: #4E73F815;
 	color:#000000;
 	margin-block-start: 2%;
-	width:100px;
+	width:130px;
 	height: 30px;
 	border-color: #4E73F8;
 	border-radius: 8%;
 	border-width: 1px;
+}
+
+.down:hover{
+	border-color: #000000;
 }
 
 .container{
