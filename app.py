@@ -60,7 +60,7 @@ def index():
 
     return render_template('index.html', filepath=filepath, df = df)
 print(filepath)
-fp = "static\data.csv"
+fp = os.path.join("static","data.csv")
 
 """""
   __  __           _      _   ____             _       
@@ -295,7 +295,7 @@ joblib.dump(classifier, 'model.pkl')"""
 
         code=open("static/output.py","w")
         code.write(final)
-        os.remove("static\data.csv")
+        os.remove(os.path.join("static","data.csv"))
         accuracy = round(accuracy*100, 2)
          
     return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
