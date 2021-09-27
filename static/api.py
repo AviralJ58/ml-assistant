@@ -34,7 +34,11 @@ def predict_api():
     prediction = model.predict(x)
    
     #Returning class labels
-    prediction = y_encoder.inverse_transform(prediction)
+
+
+    if os.path.isfile("y_encoder.pkl"):
+        prediction = y_encoder.inverse_transform(prediction)
+        
     output = {"target" : {"1" : prediction[0]}}
     for i in range(1,len(prediction)):
         output["target"][str(i + 1)] = prediction[i]
