@@ -94,6 +94,16 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 8%;
 	border-width: 1px;
 }
+.downc{
+	background-color: #4E73F815;
+	color:#000000;
+	margin-block-start: 2%;
+	width:180px;
+	height: 40px;
+	border-color: #2c57f1;
+	border-radius: 8%;
+	border-width: 1px;
+}
 
 .down:hover{
 	border-color: #000000;

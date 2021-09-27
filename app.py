@@ -314,6 +314,12 @@ def return_api():
 		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
 	except Exception as e:
 		return str(e)
+@app.route('/return-csv/')
+def return_csv():
+    try:
+	    return send_file('static/merc.csv', as_attachment=True, attachment_filename='dataset.csv')
+    except Exception as e:
+	    return str(e)
 
 if __name__ == '__main__':
     app.run(debug=True)
