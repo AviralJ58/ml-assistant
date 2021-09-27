@@ -25,5 +25,7 @@ Even if you don't know to write a single line of code, you can get machine learn
 <h4>Step 4:
 <b>Click on the submit button.</b></h4>
 </li></ul>
+<br>
+The program trains the uploaded dataset using different algorithms and returns an output file consisting of the model giving the best accuracy score. 
 </p>
 </div>
