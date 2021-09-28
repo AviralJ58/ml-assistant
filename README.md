@@ -1,7 +1,7 @@
 
-# AutoML
+# Automatic ML Renderer
 
-AutoML allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
+Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can be deployed or integrated with any website.
 <p align="center"><img src="https://automatic-ml-rendering.herokuapp.com/static/icon.png"></p>
 <p align="center">
 <img src="https://img.shields.io/badge/Version-v1.0.0.0-brightgreen.svg?style=plastic">
@@ -57,13 +57,13 @@ AutoML allows you to train a machine learning model and deploy it without writin
 - Once the model has been returned you can now proceed to download `Output.py` and `Api.py`. Make sure to keep `Output.py` and `Api.py` and the dataset in the same folder.
   ![Alt Text](static/download_gif.gif)
 
-- Open the `Output.py` and `Api.py` files. In `Output.py` file, locate the `filepath`  and `tar` variables.
+- Open the `output.py` and `api.py` files. In `output.py` file, locate the `filepath`  and `tar` variables.
 
 - In `filepath` variable write the address of the dataset in your PC. Ex: `filepath = C:\Users\downloads\ML\housing_price.csv`
 
 - In `tar` variable write the name of the target variable which should be same as the one selected earlier. Ex: `tar = median_house_value`.
 
-- Run `Output.py` Certain files will be downloaded in the same folder as follows: 
+- Run `output.py` Certain files will be downloaded in the same folder as follows: 
 
   - `model.pkl`
   - `scaler.pkl`
@@ -72,6 +72,6 @@ AutoML allows you to train a machine learning model and deploy it without writin
 
 - Note: Do not delete these files. It is important that these files are present in the same folder.
 
-- Run `Api.py`.
+- Run `api.py`.
   ![Alt Text](static/working_gif.gif)
   

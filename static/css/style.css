@@ -80,10 +80,6 @@ h1,h2,h3,h4,h5,h6{
 	display: flex;
 }
 
-.submit:hover{
-	background-color: #4e73f8f3;
-}
-
 .down{
 	background-color: #4E73F815;
 	color:#000000;
@@ -94,18 +90,34 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 8%;
 	border-width: 1px;
 }
-.downc{
+
+.documentation{
 	background-color: #4E73F815;
 	color:#000000;
 	margin-block-start: 2%;
-	width:220px;
-	height: 40px;
-	border-color: #2c57f1;
+	width:210px;
+	height: 35px;
+	border-color: #4D72F8;
 	border-radius: 2%;
 	border-width: 1px;
 }
 
-.down:hover{
+.sample{
+	background-color: #4D72F8;
+	color:#ffffff;	
+	margin-block-start: 2%;
+	border-color: #4D72F8;
+	height: 35px;
+	width:210px;
+	border-radius: 2%;
+	border-width: 1px;
+}
+
+.submit:hover, .sample:hover{
+	background-color: #4e73f8f3;
+}
+
+.down:hover,.documentation:hover{
 	border-color: #000000;
 }
 
@@ -143,10 +155,10 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .header{
-text-align: left;
-vertical-align: middle;
-margin:100;
-padding: 0;
+	text-align: left;
+	vertical-align: middle;
+	margin:100;
+	padding: 0;
 }
 
 .heading{
@@ -155,8 +167,6 @@ padding: 0;
 	font-size: 34px;
 	color: #4D72F8;
 	position: relative;
-
-
 }
 
 .heading:before{
@@ -167,15 +177,11 @@ padding: 0;
 .footer{
 	height:20px;
     width: 100%;
-    background-color: #000000;
+    background-color: #404D61;
     text-align: center;
 	color: #ffffff;
 	font-size: smaller;
   }
-
-#index_footer{
-	margin-block-start: 13.8%;
-}
 
 @media screen and (max-width:510px)
 {
