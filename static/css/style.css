@@ -108,7 +108,7 @@ h1,h2,h3,h4,h5,h6{
 	margin-block-start: 2%;
 	border-color: #4D72F8;
 	height: 35px;
-	width:210px;
+	width:220px;
 	border-radius: 2%;
 	border-width: 1px;
 }
@@ -177,7 +177,7 @@ h1,h2,h3,h4,h5,h6{
 .footer{
 	height:20px;
     width: 100%;
-    background-color: #404D61;
+    background-color: #4D72F8;
     text-align: center;
 	color: #ffffff;
 	font-size: smaller;
