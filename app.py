@@ -17,6 +17,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn.metrics import accuracy_score
 import joblib
+import zipfile
 
 
 """""
@@ -314,12 +315,13 @@ def return_api():
 		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
 	except Exception as e:
 		return str(e)
-@app.route('/return-csv/')
-def return_csv():
+@app.route('/return-csv-json/')
+def return_csv_json():
     try:
-	    return send_file('static/merc.csv', as_attachment=True, attachment_filename='dataset.csv')
+	    return send_file('static/sample-folder.zip', as_attachment=True, attachment_filename='sample-folder.zip')
     except Exception as e:
 	    return str(e)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,42 @@
+[
+	{
+	  "model": "SLK",
+	  "year": 2005,
+	  "price": 5200,
+	  "transmission": "Automatic",
+	  "mileage": 63000,
+	  "tax": 325,
+	  "mpg": 32.1,
+	  "engineSize": 1.8
+	},
+	{
+	  "model": "S Class",
+	  "year": 2017,
+	  "price": 34948,
+	  "transmission": "Automatic",
+	  "mileage": 27000,
+	  "tax": 20,
+	  "mpg": 61.4,
+	  "engineSize": 2.1
+	},
+	{
+		"model": "SLK",
+		"year": 2005,
+		"price": 6300,
+		"transmission": "Automatic",
+		"mileage": 63000,
+		"tax": 35,
+		"mpg": 32.1,
+		"engineSize": 1.8
+	  },
+	{
+		"model": "C Class",
+		"year": 2005,
+		"price": 6300,
+		"transmission": "Automatic",
+		"mileage": 63000,
+		"tax": 35,
+		"mpg": 32.1,
+		"engineSize": 1.8
+	  }
+  ]
