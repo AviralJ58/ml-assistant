@@ -13,7 +13,7 @@ AutoML allows you to train a machine learning model and deploy it without writin
 
 - Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.
 
-- Categorical Data: Categorical Data includes the text columns. In Python these columns have the type 'Object' and must be encoded to some numerical value for the algorith to work.
+- Categorical Data: Categorical Data includes the text columns. In Python these columns have the type 'Object' and must be encoded to some numerical value for the algorithm to work.
 ## Requirments and Installations
 
 - [Latest version of python](https://www.python.org/downloads/) 
@@ -50,22 +50,22 @@ AutoML allows you to train a machine learning model and deploy it without writin
     - [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
     - To measure the accuracy [accuracy_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) metric has been used
 
-- Once the model has been returned you can now proceed to download `Output.py` and `Api.py`. Make sure to keep `Output.py` and `Api.py` in the same folder.
+- Once the model has been returned you can now proceed to download `output.py` and `api.py`. Make sure to keep `output.py` and `api.py` in the same folder.
 
-- Open the `Output.py` and `Api.py` files. In `Output.py` file, locate the `filepath`  and `tar` variables.
+- Open the `output.py` and `api.py` files. In `output.py` file, locate the `filepath`  and `tar` variables.
 
 - In `filepath` variable write the path of the dataset in your PC. Ex: `filepath = C:\Users\downloads\ML\merc.csv`
 
 - In `tar` variable write the name of the target variable which should be same as the one selected earlier. Ex: `tar = price`.
 
-- Run `Output.py` Certain files will be downloaded in the same folder as follows: 
+- Run `output.py` Certain files will be downloaded in the same folder as follows: 
 
   - `model.pkl`
   - `scaler.pkl`
   - `x_encoder.pkl` (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)
   - `y_encoder.pkl` (If the target variable has categorical data)
 
-- Note: Do not delete these files. It is important that these files are present in the same folder.
+>⚠️ Do not delete these files. It is important that these files are present in the same folder.
 
-- Run `Api.py`.
+- Run `api.py`.
   
