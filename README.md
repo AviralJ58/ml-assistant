@@ -33,7 +33,7 @@ AutoML allows you to train a machine learning model and deploy it without writin
 ## How to use
 
 - Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
-  ![Alt Text](static\submit_gif.gif)
+  ![Alt Text](static/submit_gif.gif)
 - You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.
 
 - From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.
@@ -52,10 +52,10 @@ AutoML allows you to train a machine learning model and deploy it without writin
     - [Decision Tree](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
     - [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
-  ![Alt Text](static\model_gif.gif)
+  ![Alt Text](static/model_gif.gif)
 
 - Once the model has been returned you can now proceed to download `Output.py` and `Api.py`. Make sure to keep `Output.py` and `Api.py` and the dataset in the same folder.
-  ![Alt Text](static\download_gif.gif)
+  ![Alt Text](static/download_gif.gif)
 
 - Open the `Output.py` and `Api.py` files. In `Output.py` file, locate the `filepath`  and `tar` variables.
 
@@ -73,5 +73,5 @@ AutoML allows you to train a machine learning model and deploy it without writin
 - Note: Do not delete these files. It is important that these files are present in the same folder.
 
 - Run `Api.py`.
-  ![Alt Text](static\working_gif.gif)
+  ![Alt Text](static/working_gif.gif)
   
