@@ -1,7 +1,7 @@
 
-# AutoML
+# Automatic ML Renderer
 
-AutoML allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
+Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
 <p align="center"><img src="https://automatic-ml-rendering.herokuapp.com/static/icon.png"></p>
 <p align="center">
 <img src="https://img.shields.io/badge/Version-v1.0.0.0-brightgreen.svg?style=plastic">
