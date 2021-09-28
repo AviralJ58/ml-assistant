@@ -1,11 +1,7 @@
 
 # Automatic ML Renderer
 
-Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can be deployed or integrated with any website.
-<p align="center"><img src="https://automatic-ml-rendering.herokuapp.com/static/icon.png"></p>
-<p align="center">
-<img src="https://img.shields.io/badge/Version-v1.0.0.0-brightgreen.svg?style=plastic">
-<h3>The TIME has come for you to bring Machine Learning to LIFE.</h3>
+Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
 
 ## Terms to know:
 
@@ -17,7 +13,7 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
 
 - Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.
 
-- Categorical Data: Categorical Data includes the text columns. In Python these columns have the type 'Object' and must be encoded to some numerical value for the algorith to work.
+- Categorical Data: Categorical Data includes the text columns. In Python these columns have the type 'Object' and must be encoded to some numerical value for the algorithm to work.
 ## Requirments and Installations
 
 - [Latest version of python](https://www.python.org/downloads/) 
@@ -33,7 +29,7 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
 ## How to use
 
 - Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
-  ![Alt Text](static/submit_gif.gif)
+
 - You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.
 
 - From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.
@@ -42,26 +38,19 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
 
   - For Regression it will return one out of these models:
 
-    - [Linear Regression](https://www.geeksforgeeks.org/linear-regression-python-implementation/)
+    - [Linear Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
     - [Support Vector Machine (SVM)](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html)
     - [Decision Tree](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)
+    - To measure the accuracy [r2_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html) metric has been used
 
   - For Classification it will return one out of these models:
   
     - [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
     - [Decision Tree](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
     - [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+    - To measure the accuracy [accuracy_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) metric has been used
 
-  ![Alt Text](static/model_gif.gif)
-
-- Once the model has been returned you can now proceed to download `Output.py` and `Api.py`. Make sure to keep `Output.py` and `Api.py` and the dataset in the same folder.
-  ![Alt Text](static/download_gif.gif)
-
-- Open the `output.py` and `api.py` files. In `output.py` file, locate the `filepath`  and `tar` variables.
-
-- In `filepath` variable write the address of the dataset in your PC. Ex: `filepath = C:\Users\downloads\ML\housing_price.csv`
-
-- In `tar` variable write the name of the target variable which should be same as the one selected earlier. Ex: `tar = median_house_value`.
+- Once the model has been returned you can now proceed to download `output.py` and `api.py`. Make sure to keep `output.py` and `api.py` in the same folder.
 
 - Run `output.py` Certain files will be downloaded in the same folder as follows: 
 
@@ -70,8 +59,7 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
   - `x_encoder.pkl` (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)
   - `y_encoder.pkl` (If the target variable has categorical data)
 
-- Note: Do not delete these files. It is important that these files are present in the same folder.
+>⚠️ Do not delete these files. It is important that these files are present in the same folder.
 
 - Run `api.py`.
-  ![Alt Text](static/working_gif.gif)
   

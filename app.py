@@ -1,9 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request, redirect, url_for
-from flask import send_file,  jsonify
+from flask import send_file
 import os
-import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -16,9 +15,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn.metrics import accuracy_score
-import joblib
-import zipfile
-
 
 """""
   _   _                        ____             _       
@@ -31,9 +27,11 @@ import zipfile
 
 app = Flask(__name__)
 filepath=""
+orig_name=""
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
+    global orig_name
     filepath = "NOT FOUND"
     df = pd.DataFrame()
     accuracy=0
@@ -41,6 +39,7 @@ def index():
     Keymax=''
     if request.method == 'POST':
         file = request.files['csvfile']
+        orig_name=file.filename
        
         if not os.path.isdir('static'):
             os.mkdir('static')
@@ -60,7 +59,7 @@ def index():
 
 
     return render_template('index.html', filepath=filepath, df = df)
-print(filepath)
+
 fp = os.path.join("static","data.csv")
 
 """""
@@ -134,8 +133,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-filepath=   #Please enter the name of csv file (should be in the same folder).
-tar= {tar}  #Please enter target variable name
+filepath='{orig_name}'
+tar= '{tar}'
 df=pd.read_csv(filepath)
 
 # Identifying the categotical columns and label encoding them
