@@ -52,12 +52,6 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
 
 - Once the model has been returned you can now proceed to download `output.py` and `api.py`. Make sure to keep `output.py` and `api.py` in the same folder.
 
-- Open the `output.py` and `api.py` files. In `output.py` file, locate the `filepath`  and `tar` variables.
-
-- In `filepath` variable write the path of the dataset in your PC. Ex: `filepath = C:\Users\downloads\ML\merc.csv`
-
-- In `tar` variable write the name of the target variable which should be same as the one selected earlier. Ex: `tar = price`.
-
 - Run `output.py` Certain files will be downloaded in the same folder as follows: 
 
   - `model.pkl`
