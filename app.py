@@ -126,7 +126,7 @@ def model():
 
 
 
-        final="""import os
+        final=f"""import os
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -135,7 +135,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 filepath=   #Please enter the name of csv file (should be in the same folder).
-tar=    #Please enter target variable name
+tar= {tar}  #Please enter target variable name
 df=pd.read_csv(filepath)
 
 # Identifying the categotical columns and label encoding them
