@@ -126,6 +126,10 @@ def model():
 
 
         final=f"""import os
+with open('requirements.txt', 'w') as f:
+    fwith open('requirements.txt', 'w') as f:
+    f.write('Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn')
+os.system('pip install -r requirements.txt')
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -136,7 +140,17 @@ import joblib
 filepath='{orig_name}'
 tar= '{tar}'
 df=pd.read_csv(filepath)
+feature_df = df.drop(tar, axis=1, inplace=False)
+#print(feature_df.head())
+for col in feature_df:
+    if(feature_df[col].dtype=='object'):
+        feature_df[col]=feature_df[col].str.strip()    
 
+data = feature_df.iloc[0].to_json(indent= 2)
+with open('data.json', 'w') as f:
+    f.write('[')
+    f.write(data)
+    f.write(']')
 # Identifying the categotical columns and label encoding them
 le = LabelEncoder()
 le1 = LabelEncoder()
@@ -317,9 +331,13 @@ def return_api():
 @app.route('/return-csv-json/')
 def return_csv_json():
     try:
-	    return send_file('static/sample-folder.zip', as_attachment=True, attachment_filename='sample-folder.zip')
+	    return send_file('static/Sample-Project.zip', as_attachment=True, attachment_filename='Sample-Project.zip')
     except Exception as e:
 	    return str(e)
+
+@app.route('/documentation/')
+def documentation():
+    return render_template('documentation.html')
 
 
 if __name__ == '__main__':

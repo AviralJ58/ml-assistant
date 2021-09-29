@@ -2,7 +2,6 @@ import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import joblib
 import os
-from output import number
 
 app = Flask(__name__)
 model = joblib.load(open('model.pkl', 'rb'))

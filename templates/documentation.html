@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <link rel="icon" href="..\static\icon.ico">       
+    <title>Automatic ML Renderer</title> 
+</head>
+
+<body>
+    <br>
+    <div class="header">
+    <a href="https://automatic-ml-rendering.herokuapp.com/"><img src="..\static\icon.png"  class='icon'></a>
+    <h1 class='heading'>ML Renderer</h1>
+    <br>
+    </div>
+    
+    <hr class='divider'>
+    <br>
+    <div class="desc">
+        <h1 id="automatic-ml-renderer">Automatic ML Renderer</h1>
+        <p>Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.</p>
+        <h2 id="terms-to-know-">Terms to know:</h2>
+        <ul>
+        <li><p>Dataset: Dataset is a collection of data. For Machine Learning we use a tabular dataset. The dataset contains attributes (columns) which define the features for a certain dataset.</p>
+        </li>
+        <li><p>Target Variable: Target Variable is the the feature of the dataset which whose values you need to predict. Depending on the target variable a Machine Learning algorithm can be a Classification model or Regression model.</p>
+        </li>
+        <li><p>Classification: Classification model or function is used to predict values which are discrete in nature.  In classification, data is categorized under different labels according to some parameters given in input and then the labels are predicted for the data. For example: Predicting which class of flowers a particular flower belongs to, yes/no or true/false questions like if a patient is diabetic or not etc.</p>
+        </li>
+        <li><p>Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.</p>
+        </li>
+        <li><p>Categorical Data: Categorical Data includes the text columns. In Python these columns have the type &#39;Object&#39; and must be encoded to some numerical value for the algorithm to work.</p>
+        <h2 id="requirments-and-installations">Requirments and Installations</h2>
+        </li>
+        <li><p><a href="https://www.python.org/downloads/">Latest version of python</a> </p>
+        </li>
+        <li>Following python libraries must be installed</li>
+        </ul>
+        <pre><code class="lang-bash">  pip <span class="hljs-keyword">install </span>pandas
+          pip <span class="hljs-keyword">install </span>numpy 
+          pip <span class="hljs-keyword">install </span><span class="hljs-keyword">scikit-learn
+        </span>  pip <span class="hljs-keyword">install </span>flask
+        </code></pre>
+        <h2 id="how-to-use">How to use</h2>
+        <ul>
+        <li>Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
+        <img src="./static/submit_gif.gif" ></li>
+        <li><p>You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.</p>
+        </li>
+        <li><p>From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.</p>
+        </li>
+        <li><p>Depending on the accuracy the model with the best accuracy will be returned.</p>
+        <ul>
+        <li><p>For Regression it will return one out of these models:</p>
+        <ul>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Linear Regression</a></li>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">Support Vector Machine (SVM)</a></li>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">Decision Tree</a></li>
+        <li>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html">r2_score</a> metric has been used</li>
+        </ul>
+        </li>
+        <li><p>For Classification it will return one out of these models:</p>
+        <ul>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">Decision Tree</a></li>
+        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></li>
+        <li>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a> metric has been used
+        <img src="static/model_gif.gif" alt="Alt Text"></li>
+        </ul>
+        </li>
+        </ul>
+        </li>
+        <li>Once the model has been returned you can now proceed to download <code>output.py</code> and <code>api.py</code>. Make sure to keep <code>output.py</code> and <code>api.py</code> in the same folder.
+        <img src="static/download_gif.gif" alt="Alt Text">  </li>
+        <li><p>Run <code>output.py</code> Certain files will be downloaded in the same folder as follows: </p>
+        <ul>
+        <li><code>model.pkl</code></li>
+        <li><code>scaler.pkl</code></li>
+        <li><code>x_encoder.pkl</code> (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)</li>
+        <li><code>y_encoder.pkl</code> (If the target variable has categorical data)
+        <img src="static/working_gif.gif" alt="Alt Text"></li>
+        </ul>
+        </li>
+        </ul>
+        <blockquote>
+        <p>⚠️ Do not delete these files. It is important that these files are present in the same folder.</p>
+        </blockquote>
+        <ul>
+        <li>Run <code>api.py</code>.</li>
+        </ul>
+        
+
+    </div>
+
+    <footer class="footer" id="index_footer">
+        <p>Made with &#10084; by <a href="https://vinnovateit.com/">VinnovateIT</a></p>
+    </footer>
+    
+</body>
+</html>
