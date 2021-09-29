@@ -29,7 +29,7 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
 ## How to use
 
 - Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
-
+  ![Alt Text](static/submit_gif.gif)
 - You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.
 
 - From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.
@@ -49,15 +49,16 @@ Automatic ML Renderer allows you to train a machine learning model and deploy it
     - [Decision Tree](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
     - [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
     - To measure the accuracy [accuracy_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) metric has been used
-
+  ![Alt Text](static/model_gif.gif)
 - Once the model has been returned you can now proceed to download `output.py` and `api.py`. Make sure to keep `output.py` and `api.py` in the same folder.
-
+  ![Alt Text](static/download_gif.gif)  
 - Run `output.py` Certain files will be downloaded in the same folder as follows: 
 
   - `model.pkl`
   - `scaler.pkl`
   - `x_encoder.pkl` (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)
   - `y_encoder.pkl` (If the target variable has categorical data)
+  ![Alt Text](static/working_gif.gif)
 
 >⚠️ Do not delete these files. It is important that these files are present in the same folder.
 
