@@ -110,6 +110,8 @@ def model():
         sc=StandardScaler()
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
+        
+        req = 'Flask==1.1.2\n\tgunicorn==19.9.0\n\trequests==2.24.0\n\tnumpy\n\tpandas\n\tscikit-learn'
 
 
     
@@ -126,14 +128,11 @@ def model():
 
 
         final=f"""import os
+
 with open('requirements.txt', 'w') as f:
-    f.write('Flask==1.1.2 ')\n\t
-    f.write('pandas ')\n\t
-    f.write('sklearn ')\n\t
-    f.write('numpy ')\n\t
-    f.write('requests==2.24.0 ')\n\t
-    f.write('gunicorn==19.9.0 ')\n\t
+    f.write({req})
 os.system('pip install -r requirements.txt')
+
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
