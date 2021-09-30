@@ -127,12 +127,12 @@ def model():
 
         final=f"""import os
 with open('requirements.txt', 'w') as f:
-    f.write('Flask==1.1.2\n')
-    f.write('pandas\n')
-    f.write('sklearn\n')
-    f.write('numpy\n')
-    f.write('requests==2.24.0\n')
-    f.write('gunicorn==19.9.0')
+    f.write('Flask==1.1.2')\n\t
+    f.write('pandas')\n\t
+    f.write('sklearn')\n\t
+    f.write('numpy')\n\t
+    f.write('requests==2.24.0\n')\n\t
+    f.write('gunicorn==19.9.0')\n\t
 os.system('pip install -r requirements.txt')
 import numpy as np
 import pandas as pd
