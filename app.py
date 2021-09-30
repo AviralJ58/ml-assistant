@@ -127,12 +127,12 @@ def model():
 
         final=f"""import os
 with open('requirements.txt', 'w') as f:
-    f.write('Flask==1.1.2')\n\t
-    f.write('pandas')\n\t
-    f.write('sklearn')\n\t
-    f.write('numpy')\n\t
-    f.write('requests==2.24.0\n')\n\t
-    f.write('gunicorn==19.9.0')\n\t
+    f.write('Flask==1.1.2 ')\n\t
+    f.write('pandas ')\n\t
+    f.write('sklearn ')\n\t
+    f.write('numpy ')\n\t
+    f.write('requests==2.24.0 ')\n\t
+    f.write('gunicorn==19.9.0 ')\n\t
 os.system('pip install -r requirements.txt')
 import numpy as np
 import pandas as pd
@@ -293,7 +293,7 @@ classifier = DecisionTreeClassifier(criterion = 'entropy', random_state =0 )
 classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
 y_pred=classifier.predict(x_test)
-accuracy=accuracy_score(y_test, y_pred)X
+accuracy=accuracy_score(y_test, y_pred)
 print("Accuracy:",accuracy*100,"%")
 joblib.dump(classifier, 'model.pkl')"""
                 final+=modelstr 
