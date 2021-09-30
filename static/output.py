@@ -1,13 +1,14 @@
 import os
 with open('requirements.txt', 'w') as f:
-    f.write('Flask==1.1.2
-gunicorn==19.9.0
-requests==2.24.0
-numpy
-pandas
-scikit-learn')
+    fwith open('requirements.txt', 'w') as f:
+    f.write('Flask==1.1.2')
+    f.write('pandas')
+    f.write('sklearn')
+    f.write('numpy')
+    f.write('requests==2.24.0')
+    f.write('gunicorn==19.9.0')
+
 os.system('pip install -r requirements.txt')
-pip install -r requirements.txt
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -15,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-filepath='data.csv'
+filepath='merc.csv'
 tar= 'fuelType'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
