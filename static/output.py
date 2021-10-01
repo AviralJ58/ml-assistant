@@ -1,13 +1,12 @@
 import os
 
+requirements = ['Flask==1.1.2','numpy','pandas','scikit-learn']
 with open('requirements.txt', 'w') as f:
-    f.write(Flask==1.1.2
-	gunicorn==19.9.0
-	requests==2.24.0
-	numpy
-	pandas
-	scikit-learn)
+    for line in requirements:
+        f.write(line + '\n')
+    
 os.system('pip install -r requirements.txt')
+        
 
 import numpy as np
 import pandas as pd

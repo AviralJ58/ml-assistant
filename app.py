@@ -80,6 +80,7 @@ def model():
     final=''
     Keymax=''
     
+    
     if request.method == 'POST':
         print(fp)
         df=pd.read_csv(fp)
@@ -111,7 +112,7 @@ def model():
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
         
-        req = 'Flask==1.1.2\n\tgunicorn==19.9.0\n\trequests==2.24.0\n\tnumpy\n\tpandas\n\tscikit-learn'
+        
 
 
     
@@ -123,15 +124,17 @@ def model():
 #   / /    \__/    \ \   | |   | |  | |   | |  | |‾‾‾     | |
 #  / /              \ \  | |___| |  | |___| |  | |___|‾|  | |
 # / /                \ \  \_____/    \_____/   \______/   |_|
-
-
-
+        req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
 
         final=f"""import os
 
+requirements = ['Flask==1.1.2','numpy','pandas','scikit-learn']
 with open('requirements.txt', 'w') as f:
-    f.write({req})
+    for line in requirements:
+        f.write(line + '\\n')
+    
 os.system('pip install -r requirements.txt')
+        
 
 import numpy as np
 import pandas as pd
