@@ -73,8 +73,10 @@ fp = os.path.join("static","data.csv")
 
 @app.route('/model/', methods=['GET', 'POST'])
 def model():
-    # df = pd.DataFrame()
-    df = pd.read_csv(fp)
+    if os.path.isfile("static/data.csv"):
+        df = pd.read_csv(fp)
+    else:
+        return redirect(url_for('error_page'))
     targets = list(df.columns.values)
     accuracy=0
     final=''
@@ -111,10 +113,7 @@ def model():
         sc=StandardScaler()
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
-        
-        
-
-
+    
     
   
 #       /\      /\                        |‾|             |‾|     
@@ -124,8 +123,10 @@ def model():
 #   / /    \__/    \ \   | |   | |  | |   | |  | |‾‾‾     | |
 #  / /              \ \  | |___| |  | |___| |  | |___|‾|  | |
 # / /                \ \  \_____/    \_____/   \______/   |_|
-        req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
 
+
+
+        req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
         final=f"""import os
 
 requirements = ['Flask==1.1.2','numpy','pandas','scikit-learn']
@@ -319,6 +320,9 @@ joblib.dump(classifier, 'model.pkl')"""
          
     return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
     
+@app.route('/error/')
+def error_page():
+    return render_template("error.html")
 
 @app.route('/return-code/')
 def return_code():
