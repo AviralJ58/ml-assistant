@@ -135,7 +135,6 @@ with open('requirements.txt', 'w') as f:
     
 os.system('pip install -r requirements.txt')
         
-
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder

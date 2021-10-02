@@ -1,7 +1,7 @@
 
-# Automatic ML Renderer
+# ML Assistant
 
-Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
+ML Assistant allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.
 
 ## Terms to know:
 

@@ -11,22 +11,22 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="..\static\css\style.css">
     <link rel="icon" href="..\static\icon.ico">       
-    <title>Automatic ML Renderer</title> 
+    <title>ML Assistant</title> 
 </head>
 
 <body>
     <br>
     <div class="header">
-    <a href="https://automatic-ml-rendering.herokuapp.com/"><img src="..\static\icon.png"  class='icon'></a>
-    <h1 class='heading'>ML Renderer</h1>
+    <a href="https://ml-assistant.herokuapp.com/"><img src="..\static\icon.png"  class='icon'></a>
+    <h1 class='heading'>Assistant</h1>
     <br>
     </div>
     
     <hr class='divider'>
     <br>
     <div class="desc">
-        <h1 id="automatic-ml-renderer">Automatic ML Renderer</h1>
-        <p>Automatic ML Renderer allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.</p>
+        <h1 id="ml-assistant">ML Assistant</h1>
+        <p>ML Assistant allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.</p>
         <h2 id="terms-to-know-">Terms to know:</h2>
         <ul>
         <li><p>Dataset: Dataset is a collection of data. For Machine Learning we use a tabular dataset. The dataset contains attributes (columns) which define the features for a certain dataset.</p>
@@ -37,8 +37,10 @@
         </li>
         <li><p>Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.</p>
         </li>
-        <li><p>Categorical Data: Categorical Data includes the text columns. In Python these columns have the type &#39;Object&#39; and must be encoded to some numerical value for the algorithm to work.</p>
+        <li><p>Categorical Data: Categorical Data includes the text columns. In Python these columns have the type &#39;Object&#39; and must be encoded to some numerical value for the algorithm to work.</p></li>
+        </ul>
         <h2 id="requirments-and-installations">Requirments and Installations</h2>
+        <ul>
         </li>
         <li><p><a href="https://www.python.org/downloads/">Latest version of python</a> </p>
         </li>
@@ -52,7 +54,7 @@
         <h2 id="how-to-use">How to use</h2>
         <ul>
         <li>Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
-        <img src="./static/submit_gif.gif" ></li>
+        <img src="../static/submit_gif.gif" width=100%></li>
         <li><p>You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.</p>
         </li>
         <li><p>From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.</p>
@@ -73,20 +75,20 @@
         <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">Decision Tree</a></li>
         <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></li>
         <li>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a> metric has been used
-        <img src="static/model_gif.gif" alt="Alt Text"></li>
+        <img src="../static/model_gif.gif" alt="model" width=100%></li>
         </ul>
         </li>
         </ul>
         </li>
         <li>Once the model has been returned you can now proceed to download <code>output.py</code> and <code>api.py</code>. Make sure to keep <code>output.py</code> and <code>api.py</code> in the same folder.
-        <img src="static/download_gif.gif" alt="Alt Text">  </li>
+        <img src="../static/download_gif.gif" alt="download" width=100%>  </li>
         <li><p>Run <code>output.py</code> Certain files will be downloaded in the same folder as follows: </p>
         <ul>
         <li><code>model.pkl</code></li>
         <li><code>scaler.pkl</code></li>
         <li><code>x_encoder.pkl</code> (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)</li>
         <li><code>y_encoder.pkl</code> (If the target variable has categorical data)
-        <img src="static/working_gif.gif" alt="Alt Text"></li>
+        <img src="../static/working_gif.gif" alt="working" width=100%></li>
         </ul>
         </li>
         </ul>
@@ -96,8 +98,6 @@
         <ul>
         <li>Run <code>api.py</code>.</li>
         </ul>
-        
-
     </div>
 
     <footer class="footer" id="index_footer">
