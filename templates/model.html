@@ -16,7 +16,7 @@
 <body>
     <br>
     <div class="header">
-    <a href="https://ml-assistant.herokuapp.com/"><img src="..\static\icon.png"  class='icon'></a>
+    <img src="..\static\icon.png"  class='icon'>
     <h1 class='heading'>Assistant</h1>
     <br>
     </div>
@@ -69,7 +69,7 @@
                     2  
                 </div>
                 
-                <select name="target" id="target" method="post"  action="/model">
+                <select name="target" id="target" method="post"  action="/model" required>
                     <option value="" disabled selected hidden>Choose Target Value</option>
                     {% for tar in targets %}
                             <option value="{{ tar }}">{{ tar }}</option>
@@ -82,7 +82,7 @@
                     3
                 </div>
                
-                <select name="type" id="type">
+                <select name="type" id="type" required>
                     <option value="" disabled selected hidden>Choose Algorithm Type</option>
                     <option value="regression">Regression</option>
                     <option value="classification">Classification</option>
@@ -91,7 +91,7 @@
         </div>
         <div class="main">
             <div class="inputs">
-                <input type="submit" value="Submit" id="submit" class="submit" onclick="myFunction()">
+                <input type="submit" value="Submit" id="submit" class="submit">
             </div>
         </div>
     </form>        
@@ -109,19 +109,5 @@
     <footer class="footer">
         <p>Made with &#10084; by <a href="https://vinnovateit.com/" id="footerlink">VinnovateIT</a></p>
     </footer>
-    <!-- Script
-     <script>
-        document.getElementById("pred").style.display = "none";
-        function myFunction() {
-          var x = document.getElementById("pred");
-          
-          if (x.style.display === "none") {
-            x.style.display = "block";
-          } else {
-            x.style.display = "none";
-          }
-        }
-        </script>
-    -->
 </body>
 </html>

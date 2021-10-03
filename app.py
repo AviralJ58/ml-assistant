@@ -73,8 +73,10 @@ fp = os.path.join("static","data.csv")
 
 @app.route('/model/', methods=['GET', 'POST'])
 def model():
-    # df = pd.DataFrame()
-    df = pd.read_csv(fp)
+    if os.path.isfile("static/data.csv"):
+        df = pd.read_csv(fp)
+    else:
+        return redirect(url_for('error_page'))
     targets = list(df.columns.values)
     accuracy=0
     final=''
@@ -111,10 +113,7 @@ def model():
         sc=StandardScaler()
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
-        
-        
-
-
+    
     
   
 #       /\      /\                        |‾|             |‾|     
@@ -124,8 +123,10 @@ def model():
 #   / /    \__/    \ \   | |   | |  | |   | |  | |‾‾‾     | |
 #  / /              \ \  | |___| |  | |___| |  | |___|‾|  | |
 # / /                \ \  \_____/    \_____/   \______/   |_|
-        req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
 
+
+
+        req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
         final=f"""import os
 
 requirements = ['Flask==1.1.2','numpy','pandas','scikit-learn']
@@ -146,7 +147,6 @@ filepath='{orig_name}'
 tar= '{tar}'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
-#print(feature_df.head())
 for col in feature_df:
     if(feature_df[col].dtype=='object'):
         feature_df[col]=feature_df[col].str.strip()    
@@ -319,6 +319,9 @@ joblib.dump(classifier, 'model.pkl')"""
          
     return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
     
+@app.route('/error/')
+def error_page():
+    return render_template("error.html")
 
 @app.route('/return-code/')
 def return_code():
@@ -333,17 +336,17 @@ def return_api():
 		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
 	except Exception as e:
 		return str(e)
-@app.route('/return-csv-json/')
+
+@app.route('/return-csv/')
 def return_csv_json():
     try:
-	    return send_file('static/Sample-Project.zip', as_attachment=True, attachment_filename='Sample-Project.zip')
+	    return send_file('static/sample/data.csv', as_attachment=True, attachment_filename='data.csv')
     except Exception as e:
 	    return str(e)
 
 @app.route('/documentation/')
 def documentation():
     return render_template('documentation.html')
-
 
 if __name__ == '__main__':
     from waitress import serve

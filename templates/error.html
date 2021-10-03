@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <link rel="icon" href="..\static\icon.ico">
+    <title>ML Assistant</title>
+
+    <script language="JavaScript" type="text/javascript">
+        var seconds = 4;
+        var url = "{{url_for('index')}}";
+
+        function redirect() {
+            if (seconds <= 0) {
+                window.location = url;
+            } 
+            else {
+                seconds--;
+                document.getElementById("pageInfo").innerHTML = "Redirecting to Home Page after " + seconds + " seconds."
+                setTimeout("redirect()", 1000)
+            }
+        }
+    </script>
+</head>
+
+<body onload="redirect()">
+    <br>
+    <div class="header">
+        <img src="..\static\icon.png" class='icon'>
+        <h1 class='heading'>Assistant</h1>
+        <br>
+    </div>
+
+    <hr class='divider'>
+    <br>
+    <h1 style="text-align: center;">Please provide the dataset before proceeding</h1>
+    <br>
+    <p id="pageInfo" style="text-align: center;"></p>
+    <p style="text-align: center;"><a href="{{ url_for('index') }}">Go now</a></p>
+</body>
+
+</html>
