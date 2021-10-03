@@ -340,7 +340,7 @@ def return_api():
 @app.route('/return-csv/')
 def return_csv_json():
     try:
-	    return send_file('static\sample-folder\Sample-Project\data.csv', as_attachment=True, attachment_filename='data.csv')
+	    return send_file('static/sample/data.csv', as_attachment=True, attachment_filename='data.csv')
     except Exception as e:
 	    return str(e)
 
