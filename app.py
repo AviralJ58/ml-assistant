@@ -147,7 +147,6 @@ filepath='{orig_name}'
 tar= '{tar}'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
-#print(feature_df.head())
 for col in feature_df:
     if(feature_df[col].dtype=='object'):
         feature_df[col]=feature_df[col].str.strip()    
