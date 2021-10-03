@@ -313,7 +313,7 @@ joblib.dump(classifier, 'model.pkl')"""
                 final+=modelstr
 
 
-        code=open("static/model.py","w")
+        code=open("static/output.py","w")
         code.write(final)
         os.remove(os.path.join("static","data.csv"))
         accuracy = round(accuracy*100, 2)
@@ -327,7 +327,7 @@ def error_page():
 @app.route('/return-code/')
 def return_code():
 	try:
-		return send_file('static/model.py', as_attachment=True, attachment_filename='model.py')
+		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
 	except Exception as e:
 		return str(e)
 
@@ -337,6 +337,7 @@ def return_api():
 		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
 	except Exception as e:
 		return str(e)
+
 @app.route('/return-csv/')
 def return_csv_json():
     try:
@@ -347,7 +348,6 @@ def return_csv_json():
 @app.route('/documentation/')
 def documentation():
     return render_template('documentation.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
