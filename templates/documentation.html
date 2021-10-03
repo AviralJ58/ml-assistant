@@ -25,79 +25,142 @@
     <hr class='divider'>
     <br>
     <div class="desc">
-        <h1 id="ml-assistant">ML Assistant</h1>
         <p>ML Assistant allows you to train a machine learning model and deploy it without writing a single line of code. It provides the output code and and the API which can can be deployed or integrated with any website.</p>
-        <h2 id="terms-to-know-">Terms to know:</h2>
-        <ul>
-        <li><p>Dataset: Dataset is a collection of data. For Machine Learning we use a tabular dataset. The dataset contains attributes (columns) which define the features for a certain dataset.</p>
-        </li>
-        <li><p>Target Variable: Target Variable is the the feature of the dataset which whose values you need to predict. Depending on the target variable a Machine Learning algorithm can be a Classification model or Regression model.</p>
-        </li>
-        <li><p>Classification: Classification model or function is used to predict values which are discrete in nature.  In classification, data is categorized under different labels according to some parameters given in input and then the labels are predicted for the data. For example: Predicting which class of flowers a particular flower belongs to, yes/no or true/false questions like if a patient is diabetic or not etc.</p>
-        </li>
-        <li><p>Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.</p>
-        </li>
-        <li><p>Categorical Data: Categorical Data includes the text columns. In Python these columns have the type &#39;Object&#39; and must be encoded to some numerical value for the algorithm to work.</p></li>
-        </ul>
-        <h2 id="requirments-and-installations">Requirments and Installations</h2>
-        <ul>
-        </li>
-        <li><p><a href="https://www.python.org/downloads/">Latest version of python</a> </p>
-        </li>
-        <li>Following python libraries must be installed</li>
-        </ul>
-        <pre><code class="lang-bash">  pip <span class="hljs-keyword">install </span>pandas
-          pip <span class="hljs-keyword">install </span>numpy 
-          pip <span class="hljs-keyword">install </span><span class="hljs-keyword">scikit-learn
-        </span>  pip <span class="hljs-keyword">install </span>flask
-        </code></pre>
-        <h2 id="how-to-use">How to use</h2>
-        <ul>
-        <li>Upload the dataset (in csv format) and click on submit. Make sure the file is in csv format.
-        <img src="../static/submit_gif.gif" width=100%></li>
-        <li><p>You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.</p>
-        </li>
-        <li><p>From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.</p>
-        </li>
-        <li><p>Depending on the accuracy the model with the best accuracy will be returned.</p>
-        <ul>
-        <li><p>For Regression it will return one out of these models:</p>
-        <ul>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Linear Regression</a></li>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">Support Vector Machine (SVM)</a></li>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">Decision Tree</a></li>
-        <li>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html">r2_score</a> metric has been used</li>
-        </ul>
-        </li>
-        <li><p>For Classification it will return one out of these models:</p>
-        <ul>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></li>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">Decision Tree</a></li>
-        <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></li>
-        <li>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a> metric has been used
-        <img src="../static/model_gif.gif" alt="model" width=100%></li>
-        </ul>
-        </li>
-        </ul>
-        </li>
-        <li>Once the model has been returned you can now proceed to download <code>output.py</code> and <code>api.py</code>. Make sure to keep <code>output.py</code> and <code>api.py</code> in the same folder.
-        <img src="../static/download_gif.gif" alt="download" width=100%>  </li>
-        <li><p>Run <code>output.py</code> Certain files will be downloaded in the same folder as follows: </p>
-        <ul>
-        <li><code>model.pkl</code></li>
-        <li><code>scaler.pkl</code></li>
-        <li><code>x_encoder.pkl</code> (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)</li>
-        <li><code>y_encoder.pkl</code> (If the target variable has categorical data)
-        <img src="../static/working_gif.gif" alt="working" width=100%></li>
-        </ul>
-        </li>
-        </ul>
-        <blockquote>
-        <p>⚠️ Do not delete these files. It is important that these files are present in the same folder.</p>
-        </blockquote>
-        <ul>
-        <li>Run <code>api.py</code>.</li>
-        </ul>
+<h2 id="terms-to-know-">Terms to know:</h2>
+<ul>
+<li>Dataset: Dataset is a collection of data. For Machine Learning we use a tabular dataset. The dataset contains attributes (columns) which define the features for a certain dataset.</li>
+</ul>
+<ul>
+<li>Target Variable: Target Variable is the the feature of the dataset which whose values you need to predict. Depending on the target variable a Machine Learning algorithm can be a Classification model or Regression model.</li>
+</ul>
+<ul>
+<li>Classification: Classification model or function is used to predict values which are discrete in nature. In classification, data is categorized under different labels according to some parameters given in input and then the labels are predicted for the data. For example: Predicting which class of flowers a particular flower belongs to, yes/no or true/false questions like if a patient is diabetic or not etc.</li>
+</ul>
+<ul>
+<li>Regression: Regression model or function is used to predict continuous real values. The target outcome for regression model will always be a quantity. For example: Price of house, temperature of a city over certain period of time etc.</li>
+</ul>
+<ul>
+<li>Categorical Data: Categorical Data includes the text columns. In Python these columns have the type &#39;Object&#39; and must be encoded to some numerical value for the algorithm to work.</li>
+</ul>
+<h2 id="requirments-and-installations">Requirments and Installations</h2>
+<ul>
+<li><p><a href="https://www.python.org/downloads/">Latest version of python</a></p>
+</li>
+<li><p>Following python libraries are required for the model and api to run.</p>
+<pre><code> 1. <span class="ruby"> pandas
+</span> 2. <span class="ruby"> numpy
+</span> 3. <span class="ruby"> scikit-learn
+</span> 4. <span class="ruby"> flask</span>
+</code></pre></li>
+<li><p>⭐ All the requirements will be installed automatically when the app is run on your machine.</p>
+</li>
+<li>Incase, requirements do not get installed automatically, the following commands can be used to install the libraries manually.</li>
+</ul>
+<pre><code class="lang-bash">
+pip <span class="hljs-keyword">install </span>pandas
+
+pip <span class="hljs-keyword">install </span>numpy
+
+pip <span class="hljs-keyword">install </span><span class="hljs-keyword">scikit-learn
+</span>
+pip <span class="hljs-keyword">install </span>Flask==<span class="hljs-number">1</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>
+</code></pre>
+<h2 id="how-to-use">How to use</h2>
+<p><strong>Step 1: Upload CSV</strong></p>
+<ul>
+<li>Upload the dataset (in CSV format) and click on submit. <blockquote>
+<p>⚠️<strong>Make sure the file is in CSV format.</strong></p>
+</blockquote>
+</li>
+</ul>
+
+<p><strong>Step 2:  Select Target</strong></p>
+<ul>
+<li>You will be presented with a list of features ( columns of your dataset). Select the feature which you need to predict.</li>
+</ul>
+<p><strong>Step 3:  Select Type of Model</strong></p>
+<ul>
+<li>From the dataset identify and select the type of model you want, that is Regression or Classification (which are described above) and click on submit.</li>
+</ul>
+<ul>
+<li>Depending on the accuracy the model with the best accuracy will be returned.</li>
+</ul>
+<ul>
+<li>For Regression it will return one out of these models:</li>
+</ul>
+<ul>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Linear Regression</a></p>
+</li>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">Support Vector Machine (SVM)</a></p>
+</li>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">Decision Tree</a></p>
+</li>
+<li><p>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html">r2_score</a> metric has been used</p>
+</li>
+</ul>
+<ul>
+<li><p>For Classification it will return one out of these models:</p>
+</li>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></p>
+</li>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">Decision Tree</a></p>
+</li>
+<li><p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></p>
+</li>
+<li><p>To measure the accuracy <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a> metric has been used</p>
+</li>
+</ul>
+
+<p><strong>Step 4:  Downloading Model &amp; API Files</strong></p>
+<ul>
+<li>Once the model has been returned you can now proceed to download <code>model.py</code> and <code>api.py</code>. <blockquote>
+<p>⚠️Make sure to keep <code>model.py</code> and <code>api.py</code> in the same folder.</p>
+</blockquote>
+</li>
+</ul>
+
+<ul>
+<li><p>Run <code>model.py</code> Certain files will be downloaded in the same folder as follows:</p>
+</li>
+<li><p><code>model.pkl</code></p>
+</li>
+<li><p><code>scaler.pkl</code></p>
+</li>
+<li><p><code>x_encoder.pkl</code> (If there are attributes with categorical values. If there are are more than one multiple files will be downloaded)</p>
+</li>
+<li><p><code>y_encoder.pkl</code> (If the target variable has categorical data)</p>
+</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Do not delete these files. It is important that these files are present in the same folder.</p>
+</blockquote>
+<p>  <strong>Step 5:  Run Flask server &amp; API</strong></p>
+<ul>
+<li>Run <code>model.py</code> to install requirements and train the model on your machine by entering the following command in your terminal</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-keyword">python</span> model.<span class="hljs-keyword">py</span>
+</code></pre>
+<blockquote>
+<p>⚠️Incase of an error refer <a href="#requirments-and-installations">Requirements and Installations</a></p>
+</blockquote>
+<ul>
+<li><ul>
+<li>Run <code>api.py</code> to start a flask server on your machine by entering the following command in your terminal. A sample JSON <code>data.json</code> will also be created.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-keyword">python</span> api.<span class="hljs-keyword">py</span>
+</code></pre>
+<ul>
+<li><p>A flask server will be started in your local host machine</p>
+<p><strong>Step 6:  Testing API</strong></p>
+<ul>
+<li>You can test API on the <code>http://127.0.0.1:5000/predict_api</code> route <code>POST</code> request</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     <footer class="footer" id="index_footer">
