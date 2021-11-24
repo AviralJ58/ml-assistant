@@ -276,7 +276,7 @@ joblib.dump(regressor, 'model.pkl')"""
             
             if Keymax=="LogisticRegression()":
                 modelstr="""#Training the model
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression()
 classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
